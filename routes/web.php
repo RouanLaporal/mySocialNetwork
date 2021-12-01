@@ -32,5 +32,9 @@ Route::get('profil', function(){
 })->middleware('auth');
 
 Route::get('logout', [UserController::class,'logout']);
+Route::get('update', function(){
+    return view('update');
+})->middleware('auth');
+Route::post('updateUser', [UserController::class, 'updateUser']);
 Route::post('addNewUser', [UserController::class, 'addNewUser']);
 Route::post('authenticate',  [UserController::class, 'authenticate']);

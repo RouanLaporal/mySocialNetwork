@@ -31,9 +31,8 @@ class UserController extends BaseController{
             'password' => ['required'],
         ]);
         if (Auth::attempt($credentials)){
-            //ddd(Auth::attempt($credentials));
-            //echo "ok";
             $request->session()->regenerate();
+            session(['user' => Auth::user()]);
             return redirect()->intended('profil');
         }
         return back()->withErrors([
@@ -47,5 +46,9 @@ class UserController extends BaseController{
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    public function updateUser(Request $request){
+        
     }
 }

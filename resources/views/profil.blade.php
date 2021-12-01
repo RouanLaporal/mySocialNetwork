@@ -11,6 +11,10 @@
     </head>
     <body>
         <h1>Profil</h1>
+        {{ Session::get('user')->fullName }}<br>
+        {{ Session::get('user')->email }}<br>
+        {{ Session::get('user')->username}}<br>
         <a href="/logout"><button value = "Logout" class="btn btn-primary">Logout</button></a>
+        <a href="/update"><button value = "Update" class = "btn btn-primary"> Update</button></a>
     </body>
 </html>
